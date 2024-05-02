@@ -25,10 +25,23 @@ class Bullet : public GameObject
     void Start() override
     {
         //Initialization
+
     }
     void Update()
     {
-        //Bullet update
+        //*Bullet update*//
+        
+        //If (key.space), isActive = true
+
+        //If isActive == true, 
+        //position.x += velocity.x
+        //position.y += velocity.y
+
+        //     if (position.x < 0 || position.x > GetScreenWidth() || position.y < 0 || position.y > GetScreenHeight())
+        // {
+        //     isActive = false;
+        // }
+
     }
     void Draw()
     { 

@@ -1,6 +1,12 @@
 #include "entrypoint.h"
 #include <stdio.h>
 #include "raylib.h"
+#include "GameObject.h"
+#include "Player.h"
+#include "Asteroid.h"
+#include "Bullet.h"
+
+
 
 
 void raylib_start(void){
@@ -10,11 +16,20 @@ void raylib_start(void){
     const int screenHeight = 450;
     InitWindow(screenWidth, screenHeight, "Asteroids");
 
+    Player player ({screenWidth/2, screenHeight/2});
+
+    std::vector<Asteroid> asteroids;
+    std::vector<Bullet> bullets;
+
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
     {
-        // Game logic
+       player.Update();
+       
+
+
+
 
         // Draw
         BeginDrawing();

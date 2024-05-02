@@ -5,5 +5,4 @@
 class Game{
     std::vector<GameObject> objects;
     private:
-        
 };
