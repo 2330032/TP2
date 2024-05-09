@@ -1,42 +1,33 @@
 #include "entrypoint.h"
 #include <stdio.h>
 #include "raylib.h"
-#include "GameObject.h"
-#include "Player.h"
-#include "Asteroid.h"
-#include "Bullet.h"
+#include "Game.h"
 
 
 
 
 void raylib_start(void){
     
-    // Initialization
+    Game game = Game();
+   
+    //To do: change to be defined in Game constructor
     const int screenWidth = 800;
     const int screenHeight = 450;
-    InitWindow(screenWidth, screenHeight, "Asteroids");
 
-    Player player ({screenWidth/2, screenHeight/2});
+    InitWindow(screenWidth, screenHeight,game.GetTitle());
 
-    std::vector<Asteroid> asteroids;
-    std::vector<Bullet> bullets;
 
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
     {
-       player.Update();
-       
+        game.Update();
 
-
-
-
-        // Draw
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        // Draw game objects
+        game.Draw();
 
         EndDrawing();
     }

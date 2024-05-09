@@ -6,14 +6,6 @@
 class Asteroid : public GameObject
 {
     public:
-                Vector2 position;
-        Vector2 velocity;
-        float rotation;
-        Color color;
-        float radius;
-        bool isActive;
-
-    //constructor
     Asteroid(Vector2 _startPosition, Vector2 _startVelocity, float _startRotation, Color _color, float _radius)
     {
         position = _startPosition;
@@ -32,9 +24,15 @@ class Asteroid : public GameObject
     {
         //Asteroid update
     }
-    void Draw()
+    void Draw() override
     {
         //Draw shape
+        DrawCircle(position.x,position.y, radius, color);
+    }
+
+    void OnCollisionEnter(GameObject* other)
+    {
+        color = BLUE;    
     }
 
 };

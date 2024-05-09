@@ -7,16 +7,13 @@
 class Player : public GameObject
 {
     public: 
-        Vector2 position;
-        Vector2 velocity;
-        float rotation;
-        Color color;
-        bool isActive;
+
 
     //constructor
     Player(Vector2 _startPosition)
     {
         position = _startPosition;
+        radius = 25.0f;
         velocity = {0,0};
         rotation = 0;
         color = RED;
@@ -25,16 +22,29 @@ class Player : public GameObject
 
     void Start() override 
     {
-        //Initialization
     }
-    void Update()
+    void Update(IInput* input) override
     {
-        //Player update
+        if(input->isKeyDown(Key::D))
+        {
+            position.x += 1.0f;
+        }
+        if(input->isKeyDown(Key::S))
+        {
+            position.y += 1.0f;
+        }
+        if(input->isKeyDown(Key::A))
+        {
+            position.x -= 1.0f;
+        }
+        if(input->isKeyDown(Key::W))
+        {
+            position.y -= 1.0f;
+        }
     }
-    void Draw()
+    void Draw() override
     {
         //Draw shape
+        DrawCircle(position.x,position.y, radius, GREEN);
     }
-
-
 };

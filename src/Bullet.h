@@ -6,11 +6,7 @@
 class Bullet : public GameObject
 {
     public:
-        Vector2 position;
-        Vector2 velocity;
-        Color color;
-        float radius;
-        bool isActive;
+
 
     //constructor
     Bullet(Vector2 _startPosition, Vector2 _startVelocity, Color _color, float _radius)
